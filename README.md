@@ -17,11 +17,11 @@
 
 ## Results: <a name="results"></a>
 
-- Dataset 1
-![](images/Result_Dataset1.PNG) 
+The EKF accuracy was:
+-using both sensors
+	- Dataset 1 : RMSE <= [0.0973, 0.0855, 0.4513, 0.4399]
+	- Dataset 2 : RMSE <= [0.0726, 0.0965, 0.4216, 0.4932]
 
-- Dataset 2
-![](images/Result_Dataset2.png) 
 ## How to run: <a name="howto"></a>
 
 	Perform steps following:
