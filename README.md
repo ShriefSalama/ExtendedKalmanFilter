@@ -21,7 +21,7 @@ The EKF accuracy RMSE ( Root mean square error) was :
 
 #### Dataset 1 :
 
-| Both sensors  | Both sensors  | Laser sensor only | Rader sensor only  |
+| State  | Both sensors  | Laser sensor only | Rader sensor only  |
 | ------------- | ------------- | ------------- | ------------- |
 | **Px**  | **0.0973**  | 0.1840 | 0.2383  |
 | **Py**  | **0.0855**  | 0.1543  | 0.3360  |
@@ -30,7 +30,7 @@ The EKF accuracy RMSE ( Root mean square error) was :
 
 #### Dataset 2 :
 
-| Both sensors  | Both sensors  | Laser sensor only | Rader sensor only  |
+| State  | Both sensors  | Laser sensor only | Rader sensor only  |
 | ------------- | ------------- | ------------- | ------------- |
 | **Px**  | **0.0726**  | 0.1673 | 0.2417  |
 | **Py**  | **0.0965**  | 0.1568  | 0.3376  |
