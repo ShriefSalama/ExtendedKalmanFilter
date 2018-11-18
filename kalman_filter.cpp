@@ -1,4 +1,6 @@
 #include "kalman_filter.h"
+#include <iostream>
+
 
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
@@ -45,9 +47,9 @@ void KalmanFilter::Update(const VectorXd &z) {
   MatrixXd y = H_input * x_;
   ///////////////////////////////////////////////////
 
-  VectorXd s = H_input * P_ * H_input.transpose() + R_ ;
-  VectorXd k = P_ * H_input.transpose() * s.inverse();
-  VectorXd z_pred = z - y ;
+  MatrixXd s = H_input * P_ * H_input.transpose() + R_ ;
+  MatrixXd k = P_ * H_input.transpose() * s.inverse();
+  MatrixXd z_pred = z - y ;
 
   //new state
   x_ = x_ + (k*z_pred);
@@ -74,14 +76,32 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   float vy = x_(3);
 
   float c4 = sqrt(px*px + py*py);
+	
+/*float normalized_angle = atan(py/px);
 
-  y << c4, atan(py/px) , (px*vx+py*vy)/c4;
+	while (normalized_angle > M_PI || normalized_angle < -M_PI )
+{
+	if (normalized_angle > M_PI) normalized_angle -= 2*M_PI;
+	else if (normalized_angle < -M_PI) normalized_angle += 2*M_PI;
+
+}*/
+cout << "atan  " <<atan(py/px) << endl;
+cout << "atan2 " <<atan2(py,px) << endl;
+  y << c4, atan2(py,px) , (px*vx+py*vy)/c4;
 
   ///////////////////////////////////////////////////
 
-  VectorXd s = H_input * P_ * H_input.transpose() + R_ ;
-  VectorXd k = P_ * H_input.transpose() * s.inverse();
-  VectorXd z_pred = z - y ;
+/*  cout << "Calculating S " << endl;
+  cout << "Hj =" << endl << H_input << endl ;
+  cout << "P =" << endl << P_ << endl ;
+  cout << "R =" << endl << R_ << endl ;*/
+  MatrixXd s = (H_input * P_ * H_input.transpose()) + R_ ;
+
+//  cout << "Calculating k " << endl;
+  MatrixXd k = P_ * H_input.transpose() * s.inverse();
+
+//  cout << "Calculating z_pred " << endl;
+  MatrixXd z_pred = z - y ;
 
   //new state
   x_ = x_ + (k*z_pred);
