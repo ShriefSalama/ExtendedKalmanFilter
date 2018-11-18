@@ -19,9 +19,17 @@
 
 The EKF accuracy was:
 
-### Both sensors
+#### Both sensors :
 - Dataset 1 : RMSE <= [0.0973, 0.0855, 0.4513, 0.4399]
 - Dataset 2 : RMSE <= [0.0726, 0.0965, 0.4216, 0.4932]
+
+#### Laser sensor only : 
+- Dataset 1 : RMSE <= [0.1840, 0.1543, 0.6056, 0.4862]
+- Dataset 2 : RMSE <= [0.1673, 0.1568, 0.6236, 0.4975]
+
+#### Rader sensor only :
+- Dataset 1 : RMSE <= [0.2383, 0.3360, 0.5360, 0.7172]
+- Dataset 2 : RMSE <= [0.2417, 0.3376, 0.5900, 0.7475]
 
 ## How to run: <a name="howto"></a>
 
@@ -41,7 +49,6 @@ The EKF accuracy was:
 	and predictions and update and prediction logic are implemented in kalman_filter.cpp. tools.cpp has an implementation 
 	of RMSE and Jacobian matrix.  
 
-![](images/CodeFlow.png) 
 
 ## Measurement Process: <a name="measurement"></a>
 
@@ -71,4 +78,4 @@ The EKF accuracy was:
 ![](images/radar.jpg) 
 
 ## References: <a name="references"></a>
-	1. https://github.com/JunshengFu/tracking-with-Extended-Kalman-Filter
+	1. https://github.com/udacity/CarND-Extended-Kalman-Filter-Project
