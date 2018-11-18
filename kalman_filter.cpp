@@ -65,6 +65,9 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   MatrixXd I = MatrixXd::Identity(x_size, x_size);
 
   ////////////////////////////////////////////////////
+		// Extended Functions //
+  ////////////////////////////////////////////////////
+
   MatrixXd Hj = tools.CalculateJacobian(x_);
   MatrixXd H_input = Hj;
 
@@ -77,27 +80,20 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 
   float c4 = sqrt(px*px + py*py);
 
-/*	
-float normalized_angle = atan(py/px);
-
-	while (normalized_angle > M_PI || normalized_angle < -M_PI )
-{
-	if (normalized_angle > M_PI) normalized_angle -= 2*M_PI;
-	else if (normalized_angle < -M_PI) normalized_angle += 2*M_PI;
-
-}
-cout << "atan  " <<atan(py/px) << endl;
-cout << "atan2 " <<atan2(py,px) << endl;
-*/
-
   y << c4, atan2(py,px) , (px*vx+py*vy)/c4;
+  VectorXd z_pred = z - y ;
+
+  while (z_pred(1) > M_PI || z_pred(1) < -M_PI ) {
+	if (z_pred(1) > M_PI) z_pred(1) -= 2*M_PI;
+	else if (z_pred(1) < -M_PI) z_pred(1) += 2*M_PI;
+	}
 
   ///////////////////////////////////////////////////
 
 
   MatrixXd s = (H_input * P_ * H_input.transpose()) + R_ ;
   MatrixXd k = P_ * H_input.transpose() * s.inverse();
-  MatrixXd z_pred = z - y ;
+
 
   //new state
   x_ = x_ + (k*z_pred);
