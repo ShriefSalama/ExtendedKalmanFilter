@@ -1,4 +1,4 @@
-# Object Tracking (Extended-Kalman-Filter)
+# Object Tracking using (Extended Kalman Filter)
 
 ## Table Content: ##
 - [Objective](#objective)
