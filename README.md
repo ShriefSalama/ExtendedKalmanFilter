@@ -17,26 +17,26 @@
 
 ## Results: <a name="results"></a>
 
-The EKF accuracy was:
+The EKF accuracy RMSE ( Root mean square error) was :
 
-| Both sensors  | Laser sensor only | Rader sensor only  |
-| ------------- | ------------- | ------------- |
-| 0.0973  | 0.1840 | 0.2383  |
-| 0.0855  | 0.1543  | 0.3360  |
-| 0.4513 | 0.6056  | 0.5360  |
-| 0.4399 | 0.4862 | 0.7172  |
+####Dataset 1 :
 
-#### Both sensors :
-- Dataset 1 : RMSE <= [0.0973, 0.0855, 0.4513, 0.4399]
-- Dataset 2 : RMSE <= [0.0726, 0.0965, 0.4216, 0.4932]
+| Both sensors  | Both sensors  | Laser sensor only | Rader sensor only  |
+| ------------- | ------------- | ------------- | ------------- |
+| **Px**  | **0.0973**  | 0.1840 | 0.2383  |
+| **Py**  | **0.0855**  | 0.1543  | 0.3360  |
+| **Vx**  | **0.4513** | 0.6056  | 0.5360  |
+| **Vy**  | **0.4399** | 0.4862 | 0.7172  |
 
-#### Laser sensor only : 
-- Dataset 1 : RMSE <= [0.1840, 0.1543, 0.6056, 0.4862]
-- Dataset 2 : RMSE <= [0.1673, 0.1568, 0.6236, 0.4975]
+####Dataset 2 :
 
-#### Rader sensor only :
-- Dataset 1 : RMSE <= [0.2383, 0.3360, 0.5360, 0.7172]
-- Dataset 2 : RMSE <= [0.2417, 0.3376, 0.5900, 0.7475]
+| Both sensors  | Both sensors  | Laser sensor only | Rader sensor only  |
+| ------------- | ------------- | ------------- | ------------- |
+| **Px**  | **0.0726**  | 0.1673 | 0.2417  |
+| **Py**  | **0.0965**  | 0.1568  | 0.3376  |
+| **Vx**  | **0.4216** | 0.6236  | 0.5900  |
+| **Vy**  | **0.4932** | 0.4975 | 0.7475  |
+
 
 ## How to run: <a name="howto"></a>
 
