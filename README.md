@@ -74,18 +74,18 @@ Update and prediction logic are implemented in **kalman_filter.cpp** .
 
 ## Lidar measurement: <a name="lidar"></a>
 
--**z** = is the measurement vector. For a lidar sensor, the z vector contains the position−x and position−y measurements.
+**-z** = is the measurement vector. For a lidar sensor, the z vector contains the position−x and position−y measurements.
 
--**H** is the matrix that projects your belief about the object current state into the measurement space of the sensor. For lidar, this is a fancy way of saying that we discard velocity information from the state variable since the lidar sensor only measures position: The state vector x contains information about [p​x​​,p​y​​,v​x​​,v​y​​] whereas the z vector will only contain [px,py]. Multiplying Hx allows us to compare x, our belief, with z, the sensor measurement.
+**-H** is the matrix that projects your belief about the object current state into the measurement space of the sensor. For lidar, this is a fancy way of saying that we discard velocity information from the state variable since the lidar sensor only measures position: The state vector x contains information about [p​x​​,p​y​​,v​x​​,v​y​​] whereas the z vector will only contain [px,py]. Multiplying Hx allows us to compare x, our belief, with z, the sensor measurement.
 
 ## Radar measurement: <a name="radar"></a>
 
 
-**The range, (ρ)** : is the distance to the pedestrian. The range is basically the magnitude of the position vector ρ which can be defined as ρ=sqrt(p​x​2​​+p​y​2​​).
+**-The range, (ρ)** : is the distance to the pedestrian. The range is basically the magnitude of the position vector ρ which can be defined as ρ=sqrt(p​x​2​​+p​y​2​​).
 	
-**Angle, φ=atan(p​y​​/p​x​​). Note that φ is referenced counter-clockwise from the x-axis, so φ from the video clip above in that situation would actually be negative.
+**-Angle, φ=atan(p​y​​/p​x​​)**, Note that φ is referenced counter-clockwise from the x-axis, so φ from the video clip above in that situation would actually be negative.
 	
-**The range rate, ​ρ​˙​​**, is the projection of the velocity, v, onto the line, L.
+**-The range rate, ​ρ​˙​​**, is the projection of the velocity, v, onto the line, L.
 
 ## References: <a name="references"></a>
 	1. https://github.com/udacity/CarND-Extended-Kalman-Filter-Project
